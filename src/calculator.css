@@ -1,0 +1,21 @@
+button {
+  color: white;
+  background-color: blue;
+  height: 50px;
+  width: 50px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+}
+h1 {
+  color: blue;
+}
+.screen {
+  height: 50px;
+  width: 150px;
+  border: 5px solid #000000;
+  margin-bottom: 10px;
+  background-color: violet;
+}
+.equal {
+  width: 150px;
+}

@@ -14,7 +14,7 @@ ReactDOM.render(
         <Link to="/employee">Employee</Link> |<Link to="/timer"> Timer</Link> |
         <Link to="/calculator"> Calculator</Link>
         {/* <Link to="/contact"> Contact Us </Link> */}
-        <Route exact path="/" component={Timer} />
+        <Route exact path="/" component={Employee} />
         <Route path="/timer" component={Timer} />
         <Route path="/employee" component={Employee} />
         <Route path="/calculator" component={Calculator} />

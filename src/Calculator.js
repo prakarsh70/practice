@@ -24,7 +24,7 @@ class Calculator extends React.Component {
     this.setState({
       state
     });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   input2 = (e) => {
@@ -131,68 +131,74 @@ class Calculator extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h1>In Calculator</h1>
-        {/* <input onClick={this.input1} type="number" id="inputField" /> */}
-        <div className="screen">
-          <h4>{this.state.string}</h4>
-        </div>
-        <div>
-          <button onClick={this.input1} value="1">
-            1
-          </button>
-          <button onClick={this.input1} value="2">
-            2
-          </button>
-          <button onClick={this.input1} value="3">
-            3
-          </button>
-        </div>
-        <div>
-          <button onClick={this.input1} value="4">
-            4
-          </button>
-          <button onClick={this.input1} value="5">
-            5
-          </button>
-          <button onClick={this.input1} value="6">
-            6
-          </button>
-        </div>
-        <div>
-          <button onClick={this.input1} value="7">
-            7
-          </button>
-          <button onClick={this.input1} value="8">
-            8
-          </button>
-          <button onClick={this.input1} value="9">
-            9
-          </button>
-        </div>
-        <div>
-          <button onClick={this.input2} value="+">
-            +
-          </button>
-          <button onClick={this.input1} value="0">
-            0
-          </button>
-          <button onClick={this.input2} value="-">
-            -
-          </button>
-        </div>
-        <div>
-          <button onClick={this.input2} value="*">
-            *
-          </button>
-          <button onClick={this.input2} value="/">
-            /
-          </button>
-          <button onClick={this.clear}>C</button>
-        </div>
-        <div>
-          <button onClick={this.cal} className="equal">
-            =
-          </button>
+        <div className="wrapper">
+          <h1>Calculator</h1>
+          {/* <input onClick={this.input1} type="number" id="inputField" /> */}
+          <div class="screen">
+            <h4>{this.state.string}</h4>
+          </div>
+          <div className="keys">
+            <div>
+              <button className="button" onClick={this.input1} value="1">
+                1
+              </button>
+              <button className="button" onClick={this.input1} value="2">
+                2
+              </button>
+              <button className="button" onClick={this.input1} value="3">
+                3
+              </button>
+            </div>
+            <div>
+              <button className="button" onClick={this.input1} value="4">
+                4
+              </button>
+              <button className="button" onClick={this.input1} value="5">
+                5
+              </button>
+              <button className="button" onClick={this.input1} value="6">
+                6
+              </button>
+            </div>
+            <div>
+              <button className="button" onClick={this.input1} value="7">
+                7
+              </button>
+              <button className="button" onClick={this.input1} value="8">
+                8
+              </button>
+              <button className="button" onClick={this.input1} value="9">
+                9
+              </button>
+            </div>
+            <div>
+              <button className="button" onClick={this.input2} value="+">
+                +
+              </button>
+              <button className="button" onClick={this.input1} value="0">
+                0
+              </button>
+              <button className="button" onClick={this.input2} value="-">
+                -
+              </button>
+            </div>
+            <div>
+              <button className="button" onClick={this.input2} value="*">
+                *
+              </button>
+              <button className="button" onClick={this.input2} value="/">
+                /
+              </button>
+              <button className="button" onClick={this.clear}>
+                C
+              </button>
+            </div>
+            <div>
+              <button className="button equal" onClick={this.cal}>
+                =
+              </button>
+            </div>
+          </div>
         </div>
       </React.Fragment>
     );

@@ -1,4 +1,4 @@
-button {
+.button {
   color: white;
   background-color: blue;
   height: 50px;
@@ -18,4 +18,9 @@ h1 {
 }
 .equal {
   width: 150px;
+}
+.wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
 }

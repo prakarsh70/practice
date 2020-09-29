@@ -134,7 +134,7 @@ class Calculator extends React.Component {
         <div className="wrapper">
           <h1>Calculator</h1>
           {/* <input onClick={this.input1} type="number" id="inputField" /> */}
-          <div class="screen">
+          <div className="screen">
             <h4>{this.state.string}</h4>
           </div>
           <div className="keys">

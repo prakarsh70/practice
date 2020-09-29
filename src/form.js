@@ -2,17 +2,25 @@ import React, { useState } from "react";
 
 const Form = () => {
   const [txtUsername, setTxtUsername] = useState("");
-  const [age, setAge] = useState();
+  const [age, setAge] = useState(0);
   const [formErrors, setFormErrors] = useState({ textUsername: "", age: "" });
   const [fieldValidity, setFieldValidity] = useState({
-    textUsername: true,
-    age: true
+    textUsername: false,
+    age: false
   });
-  const [formValid, setformValid] = useState(true);
+  const [successMessage, setSuccessMessage] = useState("");
+  // const [formValid, setformValid] = useState(false);
 
   return (
     <div style={{ width: 400, margin: "10px auto" }}>
-      <form>
+      <form
+        onSubmit={(event) => {
+          event.preventDefault();
+          setSuccessMessage(
+            `Form submitted with username ${txtUsername} and age ${age}`
+          );
+        }}
+      >
         <div className="form-group">
           <label htmlFor="txtUsername">User name</label>
           <input
@@ -30,10 +38,8 @@ const Form = () => {
                 }));
                 setFieldValidity((fieldValidity) => ({
                   ...fieldValidity,
-                  textUsername: true
+                  textUsername: false
                 }));
-                const form = fieldValidity.txtUsername && fieldValidity.age;
-                setformValid({ form });
               } else {
                 setFormErrors((formErrors) => ({
                   ...formErrors,
@@ -41,11 +47,12 @@ const Form = () => {
                 }));
                 setFieldValidity((fieldValidity) => ({
                   ...fieldValidity,
-                  textUsername: false
+                  textUsername: true
                 }));
-                const form = fieldValidity.txtUsername && fieldValidity.age;
-                setformValid({ form });
               }
+              // const form = !(fieldValidity.textUsername && fieldValidity.age);
+              // setformValid({ form });
+              // console.log(form);
             }}
           />
           <div style={{ color: "red" }} id="errorMsg">
@@ -53,7 +60,7 @@ const Form = () => {
           </div>
         </div>
         <div className="form-group">
-          <label for="age">Age</label>
+          <label htmlFor="age">Age</label>
           <input
             className="form-control"
             type="number"
@@ -69,29 +76,35 @@ const Form = () => {
                 }));
                 setFieldValidity((fieldValidity) => ({
                   ...fieldValidity,
-                  age: true
+                  age: false
                 }));
-                const form = fieldValidity.txtUsername && fieldValidity.age;
-                setformValid({ form });
               } else {
                 setFormErrors((formErrors) => ({ ...formErrors, age: "" }));
                 setFieldValidity((fieldValidity) => ({
                   ...fieldValidity,
-                  age: false
+                  age: true
                 }));
-                const form = fieldValidity.txtUsername && fieldValidity.age;
-                setformValid({ form });
               }
+              // const form = !(fieldValidity.textUsername && fieldValidity.age);
+              // setformValid({ form });
+              // console.log(form);
             }}
           />
           <div style={{ color: "red" }} id="errorMsg">
             {formErrors.age}
           </div>
         </div>
-        <button type="submit" className="btn btn-primary" disabled={formValid}>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          disabled={!(fieldValidity.textUsername && fieldValidity.age)}
+        >
           Submit
         </button>
       </form>
+      <div style={{ color: "green" }} id="successMessage">
+        {successMessage}
+      </div>
     </div>
   );
 };

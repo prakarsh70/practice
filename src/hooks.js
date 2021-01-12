@@ -1,10 +1,28 @@
 import React, { useState } from "react";
 function Sample() {
-  const [name, setName] = useState("Jack");
+  const [array, setArray] = useState([
+    "arun",
+    "abhishek",
+    "akshaya",
+    "jazib",
+    "ankit",
+    "kalaiselvan",
+    "prakarsh"
+  ]);
   return (
     <div>
-      Your Name is: {name}
-      <button onClick={() => setName("Jill")}>Change</button>
+      the array is:
+      <p>{array}</p>
+      {array.map((items) => {
+        return <span>{items}</span>;
+      })}
+      {array.forEach((items) => {
+        console.log(items);
+        return { items };
+      })}
+      {array.filter((items) => {
+        return items[0] === "a";
+      })}
     </div>
   );
 }

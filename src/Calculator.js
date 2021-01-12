@@ -11,7 +11,7 @@ class Calculator extends React.Component {
       value: ""
     };
   }
-  input1 = (e) => {
+  handleOperand = (e) => {
     var state = this.state;
     if (state.value === "") {
       state.value += e.target.value;
@@ -27,7 +27,7 @@ class Calculator extends React.Component {
     // console.log(this.state);
   };
 
-  input2 = (e) => {
+  handleOperator = (e) => {
     this.setState({
       string: [...this.state.string, e.target.value],
       value: ""
@@ -128,70 +128,47 @@ class Calculator extends React.Component {
     });
     // console.log(str, output, this.state);
   };
+  button = (value, callback) => {
+    return (
+      <button className="button" onClick={callback} value={value}>
+        {value}
+      </button>
+    );
+  };
   render() {
     return (
       <React.Fragment>
         <div className="wrapper">
           <h1>Calculator</h1>
-          {/* <input onClick={this.input1} type="number" id="inputField" /> */}
+          {/* <input onClick={this.handleOperand} type="number" id="inputField" /> */}
           <div className="screen">
             <h4>{this.state.string}</h4>
           </div>
           <div className="keys">
             <div>
-              <button className="button" onClick={this.input1} value="1">
-                1
-              </button>
-              <button className="button" onClick={this.input1} value="2">
-                2
-              </button>
-              <button className="button" onClick={this.input1} value="3">
-                3
-              </button>
+              {this.button(1, this.handleOperand)}
+              {this.button(2, this.handleOperand)}
+              {this.button(3, this.handleOperand)}
             </div>
             <div>
-              <button className="button" onClick={this.input1} value="4">
-                4
-              </button>
-              <button className="button" onClick={this.input1} value="5">
-                5
-              </button>
-              <button className="button" onClick={this.input1} value="6">
-                6
-              </button>
+              {this.button(4, this.handleOperand)}
+              {this.button(5, this.handleOperand)}
+              {this.button(6, this.handleOperand)}
             </div>
             <div>
-              <button className="button" onClick={this.input1} value="7">
-                7
-              </button>
-              <button className="button" onClick={this.input1} value="8">
-                8
-              </button>
-              <button className="button" onClick={this.input1} value="9">
-                9
-              </button>
+              {this.button(7, this.handleOperand)}
+              {this.button(8, this.handleOperand)}
+              {this.button(9, this.handleOperand)}
             </div>
             <div>
-              <button className="button" onClick={this.input2} value="+">
-                +
-              </button>
-              <button className="button" onClick={this.input1} value="0">
-                0
-              </button>
-              <button className="button" onClick={this.input2} value="-">
-                -
-              </button>
+              {this.button("+", this.handleOperator)}
+              {this.button(0, this.handleOperand)}
+              {this.button("-", this.handleOperator)}
             </div>
             <div>
-              <button className="button" onClick={this.input2} value="*">
-                *
-              </button>
-              <button className="button" onClick={this.input2} value="/">
-                /
-              </button>
-              <button className="button" onClick={this.clear}>
-                C
-              </button>
+              {this.button("*", this.handleOperator)}
+              {this.button("/", this.handleOperator)}
+              {this.button("C", this.clear)}
             </div>
             <div>
               <button className="button equal" onClick={this.cal}>
